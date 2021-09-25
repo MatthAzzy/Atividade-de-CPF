@@ -15,8 +15,25 @@ def isNumericDigit (digit):
         return True
 
 def validadeCpfFormat (formatedCpf):
+    if len(formatedCpf) != 11:
+        return False
+    else:
+        return True
 
-#def calculateValidationDigit (cpfPrefix):
+def calculateValidationDigit (cpfPrefix):
+    prefixSize = 0
+    prefixSize = len(cpfPrefix) 
+
+    sum = 0
+    i = 0
+    
+    while i < prefixSize:
+        factor = 0
+        digitValue = '||||||||' 
+
+        prefixSize + 1 - i 
+        sum = sum + factor * digitValue
+    return sum
 
 #def numericalCharToValue (numericalChar):
 
