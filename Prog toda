@@ -2,11 +2,11 @@
 
 import re
 
-def formatCpf (cpfInput):
+def formatCpf (self, cpfInput):
     formatedCpf = cpfInput
     formatedCpf = cpfInput.replace(".", "")
     return formatedCpf
-#cpf = input('Insira seu cpf: ') <- isso é um teste
+
 
 def isNumericDigit (digit):
     if len(digit) < 0 and len(digit) > 9:
@@ -15,10 +15,11 @@ def isNumericDigit (digit):
         return True
 
 def validadeCpfFormat (formatedCpf):
-    if len(formatedCpf) != 11:
+    if len(formatedCpf) != 11:        
         return False
     else:
         return True
+#Faltou o comando 2 da atividade aqui... não consegui entender
 
 def calculateValidationDigit (cpfPrefix):
     prefixSize = 0
@@ -35,9 +36,33 @@ def calculateValidationDigit (cpfPrefix):
         sum = sum + factor * digitValue
     return sum
 
-#def numericalCharToValue (numericalChar):
+def numericalCharToValue (numericalChar):
+    return numericalChar - 0
 
-#def validadeValidationDigits (formatedCpf):
+def validadeValidationDigits (formatedCpf):
+    digitPrefix = formatedCpf[0:8]
+    validationPrefix = formatedCpf[9:]
 
-#def validadeCpf (cpfInput):
+    if calculateValidationDigit(digitPrefix) != numericalCharToValue(validationPrefix):
+        return False
+
+    digitPrefix = formatedCpf[0:9]
+    validationPrefix = formatedCpf[9:]
+    
+    if calculateValidationDigit(digitPrefix) != numericalCharToValue(validationPrefix):
+        return False
+
+    return True
+
+
+def validadeCpf (cpfInput):
+    formatedCpf = formatCpf(cpfInput)
+
+    if validadeCpfFormat(formatedCpf):
+        return False
+    if validadeValidationDigits(formatedCpf):
+        return False
+
+    return True
+
 
