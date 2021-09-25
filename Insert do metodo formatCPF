@@ -4,6 +4,6 @@ def formatCpf (cpfInput):
     formatedCpf = cpfInput
     formatedCpf = cpfInput.replace(".", "")
     return formatedCpf
-cpf = input('Insira seu cpf: ') <- isso é um teste
+cpf = input('Insira seu cpf: ')
 
 print(formatCpf(cpf)) #só um testezin
